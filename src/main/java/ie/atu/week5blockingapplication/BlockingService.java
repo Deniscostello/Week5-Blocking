@@ -8,4 +8,15 @@ public class BlockingService {
     public BlockingService(RestTemplate restTemplate){
         this.restTemplate=restTemplate;
     }
+
+    public String fetchDataBlocking(){
+        // Simulate delay for 2 seconds
+        try {
+            Thread.sleep(2000);
+        }
+        catch (InterruptedException e){
+            e.printStackTrace();
+        }
+        return restTemplate.getForObject("https://jsonplaceholder.typicode.com/todos/1", String.class);
+    }
 }
