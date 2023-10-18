@@ -15,7 +15,7 @@ public class BlockingController {
     @GetMapping("/blocking")
     public String getBlockingData(){
         long startTime = System.currentTimeMillis();
-        for(int i = 0;i < 10;i++) {
+        for(int i = 0;i < 10;i++) { // Repeat the request 10 times
             blockingService.fetchDataBlocking();
         }
         long endTime =System.currentTimeMillis();
